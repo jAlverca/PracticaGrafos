@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualización de Grafo</title>
+    <script src="/static/d3/vis.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style type="text/css">
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      h1 {
+        color: #343a40;
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+
+      #mynetwork {
+        width: 80%;
+        max-width: 800px;
+        height: 500px;
+        border: 2px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #495057;
+        font-weight: bold;
+      }
+
+      .form-select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-select:focus {
+        border-color: #80bdff;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #fff;
+        background-color: #17a2b8;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #138496;
+      }
+
+      footer {
+        margin-top: 20px;
+        color: #6c757d;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1><i class="fas fa-project-diagram"></i> Visualización de Grafo</h1>
+    <div id="mynetwork"></div>
+
+    <div class="m-5">
+      <div class="row">
+        <div class="col-lg-6 col-12 mb-3">
+          <div class="form-group">
+            <label for="origen" class="text-dark">Origen</label>
+            <select class="form-select mt-2" id="origen" name="origen" required>
+              <option value="" selected disabled>Seleccione una iglesia</option>
+              {% for item in iglesias %}
+              <option value="{{ item._id }}">{{ item._nombre }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 mb-3">
+          <div class="form-group">
+            <label for="destino" class="text-dark">Destino</label>
+            <select
+              class="form-select mt-2"
+              id="destino"
+              name="destino"
+              required
+            >
+              <option value="" selected disabled>Seleccione una iglesia</option>
+              {% for item in iglesias %}
+              <option value="{{ item._id }}">{{ item._nombre }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 mb-3">
+          <div class="form-group">
+            <label for="tipo_busqueda" class="text-dark"
+              >Tipo de búsqueda</label
+            >
+            <select
+              class="form-select mt-2"
+              id="tipo_busqueda"
+              name="tipo_busqueda"
+              required
+            >
+              <option value="" selected disabled>
+                Seleccione un tipo de búsqueda
+              </option>
+              <option value="1">Algoritmo de Dijkstra</option>
+              <option value="2">Algoritmo de Floyd</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 mb-3">
+          <div class="form-group">
+            <label for="camino_corto" class="text-dark">Camino más corto</label>
+            <input class="input-text" id="camino_corto" type="text" readonly />
+          </div>
+        </div>
+        </div>
+        <div class="col-12">
+          <button type="button" class="btn btn-info btn-lg mt-4" id="buscar">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/static/d3/grafo.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Elementos del DOM
+        const origen = document.getElementById("origen");
+        const destino = document.getElementById("destino");
+        const tipoBusqueda = document.getElementById("tipo_busqueda");
+        const caminoInput = document.getElementById("camino_corto");
+
+        // Evento para el botón de buscar
+        document
+          .getElementById("buscar")
+          .addEventListener("click", function () {
+            const origenId = origen.value;
+            const destinoId = destino.value;
+            const tipo = tipoBusqueda.value;
+
+            if (!origenId || !destinoId || !tipo) {
+              alert(
+                "Por favor, seleccione el origen, el destino y el tipo de búsqueda."
+              );
+              return;
+            }
+
+            // Crear URL con parámetros
+            const url = new URL("/buscar", window.location.origin);
+            url.searchParams.append("origen", origenId);
+            url.searchParams.append("destino", destinoId);
+            url.searchParams.append("tipo_busqueda", tipo);
+
+            console.log("URL:", url.toString());
+
+            fetch(url.toString())
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(
+                    "Network response was not ok " + response.statusText
+                  );
+                }
+                return response.json();
+              })
+              .then((data) => {
+                console.log(data);
+                const camino = data.camino
+                  ? data.camino.map((obj) => obj.nombre).join(" -> ")
+                  : "No se encontró camino";
+                caminoInput.value = camino;
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert(
+                  "Ocurrió un error al realizar la solicitud. Verifique la consola para más detalles."
+                );
+              });
+          });
+      });
+    </script>
+  </body>
+</html>

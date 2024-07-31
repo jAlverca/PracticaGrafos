@@ -1,0 +1,60 @@
+var nodes = ([
+  {id: 0, label: '0, Nuestra Seniora'},
+  {id: 1, label: '1, San Francisco'},
+  {id: 2, label: '2, San Isidro'},
+  {id: 3, label: '3, San Pedro'},
+  {id: 4, label: '4, San Cristobal'},
+  {id: 5, label: '5, San Juan'},
+  {id: 6, label: '6, San Jose'},
+  {id: 7, label: '7, San Antonio'},
+  {id: 8, label: '8, San Miguel'},
+  {id: 9, label: '9, San Lucas'},
+  {id: 10, label: '10, San Mateo'},
+  {id: 11, label: '11, Luz del mañana'},
+  {id: 12, label: '12, San Carlos'},
+  {id: 13, label: '13, Santa Maria'},
+  {id: 14, label: '14, San Judas'},
+]);
+
+var edges = ([
+  {from: 0, to: 1, label: '1.836'},
+  {from: 0, to: 3, label: '1.536'},
+  {from: 0, to: 12, label: '1.675'},
+  {from: 0, to: 13, label: '1.675'},
+  {from: 1, to: 0, label: '1.836'},
+  {from: 1, to: 6, label: '1.464'},
+  {from: 2, to: 9, label: '1.458'},
+  {from: 3, to: 0, label: '1.536'},
+  {from: 3, to: 11, label: '0.782'},
+  {from: 4, to: 7, label: '0.0'},
+  {from: 5, to: 8, label: '0.0'},
+  {from: 6, to: 1, label: '1.464'},
+  {from: 6, to: 10, label: '0.0'},
+  {from: 7, to: 4, label: '0.0'},
+  {from: 7, to: 11, label: '0.0'},
+  {from: 7, to: 8, label: '0.0'},
+  {from: 8, to: 5, label: '0.0'},
+  {from: 8, to: 7, label: '0.0'},
+  {from: 8, to: 9, label: '0.0'},
+  {from: 9, to: 2, label: '1.458'},
+  {from: 9, to: 8, label: '0.0'},
+  {from: 9, to: 10, label: '0.0'},
+  {from: 9, to: 14, label: '0.0'},
+  {from: 10, to: 6, label: '0.0'},
+  {from: 10, to: 9, label: '0.0'},
+  {from: 11, to: 3, label: '0.782'},
+  {from: 11, to: 7, label: '0.0'},
+  {from: 11, to: 12, label: '0.0'},
+  {from: 12, to: 0, label: '1.675'},
+  {from: 12, to: 11, label: '0.0'},
+  {from: 13, to: 0, label: '1.675'},
+  {from: 14, to: 9, label: '0.0'},
+]);
+
+var data = {
+  nodes: nodes,
+  edges: edges,
+};
+var container = document.getElementById('mynetwork');
+var options = {};
+var network = new vis.Network(container, data, options);

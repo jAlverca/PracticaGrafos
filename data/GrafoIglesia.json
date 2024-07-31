@@ -1,0 +1,86 @@
+{
+    "vertices": 15,
+    "aristas": 16,
+    "adyacencias": [
+        {
+            "origen": 0,
+            "destino": 1,
+            "peso": 1.836
+        },
+        {
+            "origen": 0,
+            "destino": 3,
+            "peso": 1.536
+        },
+        {
+            "origen": 0,
+            "destino": 12,
+            "peso": 1.675
+        },
+        {
+            "origen": 0,
+            "destino": 13,
+            "peso": 1.675
+        },
+        {
+            "origen": 1,
+            "destino": 6,
+            "peso": 1.464
+        },
+        {
+            "origen": 2,
+            "destino": 9,
+            "peso": 1.458
+        },
+        {
+            "origen": 3,
+            "destino": 11,
+            "peso": 0.782
+        },
+        {
+            "origen": 4,
+            "destino": 7,
+            "peso": 0.0
+        },
+        {
+            "origen": 5,
+            "destino": 8,
+            "peso": 0.0
+        },
+        {
+            "origen": 6,
+            "destino": 10,
+            "peso": 0.0
+        },
+        {
+            "origen": 7,
+            "destino": 11,
+            "peso": 0.0
+        },
+        {
+            "origen": 7,
+            "destino": 8,
+            "peso": 0.0
+        },
+        {
+            "origen": 8,
+            "destino": 9,
+            "peso": 0.0
+        },
+        {
+            "origen": 9,
+            "destino": 10,
+            "peso": 0.0
+        },
+        {
+            "origen": 9,
+            "destino": 14,
+            "peso": 0.0
+        },
+        {
+            "origen": 11,
+            "destino": 12,
+            "peso": 0.0
+        }
+    ]
+}

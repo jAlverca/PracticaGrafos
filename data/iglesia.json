@@ -1,0 +1,107 @@
+[
+    {
+        "id": 0,
+        "nombre": "Nuestra Seniora",
+        "direccion": "Calle Venezuela",
+        "longitud": "-79.21236991882326",
+        "latitud": "-4.017290094777655"
+    },
+    {
+        "id": 1,
+        "nombre": "San Francisco",
+        "direccion": "Calle Cristobal Colon",
+        "longitud": "-79.20749902725221",
+        "latitud": "-4.033051343217008"
+    },
+    {
+        "id": 2,
+        "nombre": "San Isidro",
+        "direccion": "Calle Venezuela",
+        "longitud": "-79.21110391616823",
+        "latitud": "-4.01948075465088"
+    },
+    {
+        "id": 3,
+        "nombre": "San Pedro",
+        "direccion": "Av.Universitaria",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.0163556344097024"
+    },
+    {
+        "id": 4,
+        "nombre": "San Cristobal",
+        "direccion": "Calle Cristobal Colon",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 5,
+        "nombre": "San Juan",
+        "direccion": "Calle Argentina",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 6,
+        "nombre": "San Jose",
+        "direccion": "Av. San Lucas",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 7,
+        "nombre": "San Antonio",
+        "direccion": "Calle San Antonio",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 8,
+        "nombre": "San Miguel",
+        "direccion": "Calle Rocafuerte",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 9,
+        "nombre": "San Lucas",
+        "direccion": "Av. Pio Jaramillo",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 10,
+        "nombre": "San Mateo",
+        "direccion": "Calle Argentina",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 11,
+        "nombre": "Luz del ma\u00c3\u00b1ana",
+        "direccion": "Calle Argentina",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 12,
+        "nombre": "San Carlos",
+        "direccion": "Av. San Lucas",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 13,
+        "nombre": "Santa Maria",
+        "direccion": "Calle San Antonio",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    },
+    {
+        "id": 14,
+        "nombre": "San Judas",
+        "direccion": "Calle Rocafuerte",
+        "longitud": "-79.19857263565063",
+        "latitud": "-4.023376435712933"
+    }
+]
